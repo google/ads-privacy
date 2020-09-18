@@ -83,7 +83,7 @@ Notice how there is no mention of creatives, line items, campaigns, or any other
 
 Suppose a bidder is running a campaign called `video-campaign-US` and wants to allow users to see at most 10 impressions per week from any creative which is part of that campaign. They would want to add the following frequency cap to their bid responses whenever they bid with a creative from that campaign.
 
-```json
+```jsonc
 // Bid response
 {
   "seatbid": [{
@@ -105,7 +105,7 @@ Suppose a bidder is running a campaign called `video-campaign-US` and wants to a
 
 Suppose a bidder has a single creative with ID `123` and wants to limit the number of times any user sees this creative. They wish to only allow 10 impressions per week. Also, to make sure the user doesn’t see the impressions all at once, they additionally want to only allow 3 impressions every 2 days. They might use the following frequency caps:
 
-```json
+```jsonc
 // Bid response
 {
   "seatbid": [{
@@ -132,7 +132,7 @@ Suppose a bidder has a single creative with ID `123` and wants to limit the numb
 
 Suppose we once again have a campaign called `video-campaign-US`. A bidder wants to limit the impressions from this campaign as well as impressions from each creative within the campaign. They might achieve this with the following frequency caps:
 
-```json
+```jsonc
 // Bid response
 {
   "seatbid": [{
@@ -159,7 +159,7 @@ Suppose we once again have a campaign called `video-campaign-US`. A bidder wants
 
 Bidders can also limit the number of impressions a user can see over longer time periods. They can use the `INDEFINITE` time period to limit impressions over a long period of time (≫1 month). This can be combined with other caps as well. For instance:
 
-```json
+```jsonc
 // Bid response
 {
   "seatbid": [{
