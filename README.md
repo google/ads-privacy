@@ -75,6 +75,8 @@ These conceptual discussions around additional ideas, modifications, and extensi
 
 These are experiment proposals we are evaluating to test approaches to strengthen user privacy protections in RTB:
 
+* [TURTLEDOVE simulation](experiments/turtledove-simulation)
 * [Frequency Capping](experiments/frequency-capping)
 * [Structured User Agent](experiments/structured-ua)
 * [Structured Geolocation](experiments/structured-geo)
+
