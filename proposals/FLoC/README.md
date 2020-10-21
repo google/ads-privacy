@@ -7,3 +7,5 @@ Google Research in collaboration with the Google ads team performed an initial e
 Overall, our initial evaluations demonstrate that FLoCs can provide a strong signal for audience interest-based targeting use cases (e.g., demographics, affinity, in-market) even at high anonymity levels. This work is just a first step in evaluating the effectiveness of FLoCs. The results are encouraging. There's still ample room for further innovation and experimentation with the FLoC signal, such as pairing FLoC IDs with contextual signals to derive interests.
 
 We plan to continue these efforts across other Privacy Sandbox APIs and evaluate on additional 3P datasets. We hope that the ideas, algorithms, and results presented here can spark a greater discussion across the industry on the [Federated Learning of Cohorts](https://github.com/jkarlin/floc "FLoC") (FLoC)  API and the broader concepts of the Privacy Sandbox.
+
+More details in the linked [whitepaper](https://github.com/google/ads-privacy/blob/master/proposals/FLoC/FLOC-Whitepaper-Google.pdf "google floc whitepaper").
