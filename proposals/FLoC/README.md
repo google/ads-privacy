@@ -1,3 +1,5 @@
+<h1>Cohort Algorithms Algorithms for the FLoC API</h1>
+
 Last year, the Google Chrome team posted an explainer for Federated Learning of Cohorts (FLoC), a privacy preserving API designed to support interest based advertising. Under the FLoC proposal, the central idea is that users will be assigned to cohorts, members of cohorts will have similar browsing behaviors, and the cohort identifier can be used as a privacy-first replacement for pseudonymous identifiers to serve relevant ads.
 
 Chrome laid out the framework and principles that govern FLoCs and solicited industry engagement on an implementation. The key to the usefulness of FLoC is the quality of the clustering algorithm employed. If the clusters are homogenous and coherent, we expect that interest-based audience targeting based on cohorts can be comparable to third party cookies. If the clusters are diverse, we expect to see limited utility. 
