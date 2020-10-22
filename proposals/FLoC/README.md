@@ -10,4 +10,4 @@ Overall, our initial evaluations demonstrate that FLoCs can provide a strong sig
 
 We plan to continue these efforts across other Privacy Sandbox APIs and evaluate on additional 3P datasets. We hope that the ideas, algorithms, and results presented here can spark a greater discussion across the industry on the [Federated Learning of Cohorts](https://github.com/jkarlin/floc "FLoC") (FLoC)  API and the broader concepts of the Privacy Sandbox.
 
-More details in the linked [whitepaper](https://github.com/google/ads-privacy/blob/master/proposals/FLoC/FLOC-Whitepaper-Google.pdf "google floc whitepaper").
+More details in the linked [whitepaper](https://github.com/google/ads-privacy/raw/master/proposals/FLoC/FLOC-Whitepaper-Google.pdf "google floc whitepaper").
