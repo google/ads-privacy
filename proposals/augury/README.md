@@ -33,7 +33,7 @@ The essence of the Augury API is for DSPs to submit bids contingent on interest 
 <p align="center"><img src="https://user-images.githubusercontent.com/71041650/98283099-fd754600-1f53-11eb-8cdd-b05807ef4b13.png" width="640"></p>
 
 1. The browser sends a regular contextual ad request to the SSP as described in TURTLEDOVE.
-2. The SSP sends a bid request to the DSP
+2. The SSP sends a bid request to the DSP.
 3. DSP returns bid responses to the SSP. In addition to the regular contextual bids (if any), DSP can also return some *augury bids*.
 4. SSP validates the *augury bids* against ad quality checks and publisher brand safety controls and other settings server-side.
 5. SSP returns the winning contextual candidate and *augury candidates* that bid higher than the winning contextual candidate to the browser.
