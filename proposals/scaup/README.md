@@ -221,7 +221,7 @@ All of the TURTLEDOVE controls will apply here.  If there’s a user control to 
 
 This is an area that needs further discussion.
 
-##Ad tech Confidentiality
+## Ad tech Confidentiality
 
 Each ATP retains full control over what features go into their training data but has no control over the way that this is uploaded to the MPC servers or the training of the ML models. 
 
