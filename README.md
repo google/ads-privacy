@@ -71,6 +71,7 @@ These conceptual discussions around additional ideas, modifications, and extensi
  
 * [Dovekey](proposals/dovekey)
 * [Augury API](proposals/augury)
+* [SCAUP](proposals/scaup)
  
 ## Experiments
 
