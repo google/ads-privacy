@@ -70,6 +70,7 @@ experiments that minimize user data sharing and better protect user privacy.
 These conceptual discussions around additional ideas, modifications, and extensions to the privacy sandbox include:
  
 * [Dovekey](proposals/dovekey)
+* [Augury API](proposals/augury)
  
 ## Experiments
 
