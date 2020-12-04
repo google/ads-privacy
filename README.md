@@ -81,4 +81,4 @@ These are experiment proposals we are evaluating to test approaches to strengthe
 * [Frequency Capping](experiments/frequency-capping)
 * [Structured User Agent](experiments/structured-ua)
 * [Structured Geolocation](experiments/structured-geo)
-
+* [Exchange-assisted invalid traffic filtering](experiments/exchange-assisted-ivt)
