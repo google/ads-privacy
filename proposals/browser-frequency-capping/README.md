@@ -14,7 +14,7 @@ Here we propose a privacy-preserving mechanism for "hard" frequency capping. For
 
 Frequency caps may be conceptualized as specifying a per-user impression "budget" over some amount of time. This "budget" may be shared between multiple ads (for example, if they belong to the same advertiser or advertising campaign). The basic idea is that the browser keeps track of impressions shown for each impression "budget"; this potentially sensitive impression data never leaves the browser. Instead, upon receiving the ad request, the ATP returns several candidate ads (and corresponding bids). The browser then filters out any ads that are ineligible to show for the user, and selects the highest bidding ad from the remainder. This works very naturally with the [TURTLEDOVE](https://github.com/michaelkleber/turtledove) proposal for interest group ads; however, this proposal is for interest group and non-interest group frequency capping, and may be implemented with or without turtledove. In spirit, this is similar to the proposed [Augury API](https://github.com/google/ads-privacy/tree/master/proposals/augury) for remarketing.
 
-![browser frequency capping flow](./browser-frequency-capping-flow.png)
+<p align="center"><img src="./browser-frequency-capping-flow.png" alt="browser frequency capping flow" width="550"/></p>
 
 Below, we spell out some details of how this may work, while
 
