@@ -72,6 +72,7 @@ These conceptual discussions around additional ideas, modifications, and extensi
 * [Dovekey](proposals/dovekey)
 * [Augury API](proposals/augury)
 * [SCAUP](proposals/scaup)
+* [Browser Enforced Frequency Capping](proposals/browser-frequency-capping)
  
 ## Experiments
 
