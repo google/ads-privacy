@@ -9,7 +9,7 @@ We determine a user’s cohort ID by applying a locality-sensitive hash function
 *k-random centers* is a simple locality-sensitive hash function. Given a ![formula](https://render.githubusercontent.com/render/math?math=d)-dimensional input vector ![formula](https://render.githubusercontent.com/render/math?math=x), the hash value ![formula](https://render.githubusercontent.com/render/math?math=H(x)) is determined as follows:
 
 1. Choose ![formula](https://render.githubusercontent.com/render/math?math=k) random points (‘centers’) in ![formula](https://render.githubusercontent.com/render/math?math=d)-dimensional space, and number them ![formula](https://render.githubusercontent.com/render/math?math=1) to ![formula](https://render.githubusercontent.com/render/math?math=k).
-2. Let [formula](https://render.githubusercontent.com/render/math?math=H(x)) be the index of the center closest to x according to [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)
+2. Let ![formula](https://render.githubusercontent.com/render/math?math=H(x)) be the index of the center closest to x according to [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)
 
 We let ![formula](https://render.githubusercontent.com/render/math?math=H(x)) be the cohort ID of a user with history vector ![formula](https://render.githubusercontent.com/render/math?math=x). For comparison with other algorithms, note that since the cohort ID is the index of a center, the number of bits required to encode the ID is ![formula](https://render.githubusercontent.com/render/math?math=ceil(log_{2}(k))).
 
