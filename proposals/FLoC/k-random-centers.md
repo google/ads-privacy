@@ -1,6 +1,6 @@
 
 
-# Floc Clustering Algorithm: k Random Centers
+# FLoC Clustering Algorithm: k Random Centers
 
 Based on [Federated Learning of Cohorts](https://github.com/jkarlin/floc "FLoC") (FLoC) original proposal, instead of including a unique identifier per user (such as a cookie) in each bid request,  we assign each user to a large cohort of users with similar browsing histories, and include only cohort IDs in bid requests. A cohort ID reveals a user’s general interests, but since any single cohort ID is shared by many users, it cannot be easily used to track individual browsing behavior across sites.
 
