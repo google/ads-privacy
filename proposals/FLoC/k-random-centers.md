@@ -15,7 +15,7 @@ We let ![formula](https://render.githubusercontent.com/render/math?math=H(x)) be
 
 See Figure 1 for an illustration of this hash function.
 
-Inline-style: 
+Figure 1: 
 ![alt text](https://github.com/google/ads-privacy/blob/master/proposals/FLoC/k-random%20centers.svg "k-random-centers")
 
 
