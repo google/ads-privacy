@@ -13,3 +13,5 @@ We plan to continue these efforts across other Privacy Sandbox APIs and evaluate
 More details in the linked [whitepaper](https://github.com/google/ads-privacy/raw/master/proposals/FLoC/FLOC-Whitepaper-Google.pdf "google floc whitepaper").
 
 UPDATE 1: For proprietary data set evaluation, we did not use Chrome sync data to evaluate results. We used data collected from the Display Network through our publisher ad serving tags and advertiser conversion pings. We hope other DSPs could also use a similar setup to evaluate results.
+
+UPDATE 2: Published another clustering algorithm [k Random Centers](https://github.com/google/ads-privacy/blob/master/proposals/FLoC/k-random-centers.md).
