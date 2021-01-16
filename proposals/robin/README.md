@@ -103,6 +103,10 @@ Signature verification may be an expensive operation, especially when repeated f
 
 Rather than verifying every ad candidate in `ranking.js`, an SSP could instead verify just the winning ad before it is rendered. The ranking function can return an object for each ad candidate with its rank, creative metadata along with its cryptographic signature and any other information needed for verification. TURTLEDOVE API upon determining the winning ad can call an SSP-provided verification function (`verification.js`) with the information supplied by the ranking function.
 
-`verification.js` is a JS function that executes locally within the browser and cannot send information off-device. The metadata used to determine the ad’s eligibility can be verified using the SSP’s public key hosted on a well known URL such as [https://ssp.example/.well-known/public-key.txt](https://ssp.example/.well-known/public-key.txt).
+`verification.js` is a JS function that executes locally within the browser and cannot send information off-device. The metadata used to determine the ad’s eligibility can be verified using the SSP’s public key hosted on a well known URL such as:
+
+```
+https://ssp.example/.well-known/public-key.txt
+```
 
 Verification of a winning ad might fail under rare circumstances involving a malicious or compromised DSP or user agent. In such cases, the browser can fallback on the highest ranked contextual ad candidate as the auction winner. TURTLEDOVE API can provide a way for SSPs to learn how frequently creative metadata verifications failed in an aggregated form, for instance, via [aggregate reporting API](https://github.com/csharrison/aggregate-reporting-api). 
