@@ -30,13 +30,13 @@ Considering a DSP often partners with several SSPs, it may be beneficial to stan
 ```
 [{      'creativeId': 'ad123'
         'declaredMetadata': {'click_through_url': 'url123', 'categories'..}
-        'ad-cbor-url': 'https://dsp.com/ads/ad-123.wbn'
+        'adCborUrl': 'https://dsp.com/ads/ad-123.wbn'
         'height':100
         'width':200
 },
 {       'creativeId': 'ad567'
         'declaredMetadata': {'click_through_url': 'url567', 'categories'..}
-        'ad-cbor-url': 'https://dsp.com/ads/ad-567.wbn'
+        'adCborUrl': 'https://dsp.com/ads/ad-567.wbn'
         'height':150
         'width':250
 },
@@ -49,7 +49,7 @@ During the [incremental adoption path](https://github.com/WICG/turtledove#increm
 ```
 [{      'creativeId': 'ad123',
         'declaredMetadata': {'click_through_url': 'url123', 'categories'..},
-        'ad-html':'<html> Hello World </html>',
+        'adHtml':'<html> Hello World </html>',
         'height':100,
         'width':200
 },
@@ -69,7 +69,7 @@ Interest group creative metadata response from an SSP to a DSP may look as follo
 }
 ```
 
-The response contains `sspMetadata` which can be an arbitrary JSON object that an SSP uses in the on-device auction. The `signature` returned from SSP servers allows to authenticate `detectedMetadata` for a given interest group ad. The SSP-detected metadata, ad content and expiry timestamp can be serialized using a canonical representation such as [CBOR](https://cbor.io/) and used to compute the signature. The signature can be generated as:
+The response contains `sspMetadata` which can be an arbitrary JSON object that an SSP uses in the on-device auction. The `signature` returned from SSP servers allows to authenticate `sspMetadata` for a given interest group ad. The SSP-detected metadata, ad content and expiry timestamp can be serialized using a canonical representation such as [CBOR](https://cbor.io/) and used to compute the signature. The signature can be generated as:
 
 ```
 sign(ssp_private_key, (ad_content, ssp_detected_metadata, expiry_timestamp))
@@ -101,7 +101,7 @@ An SSP might wish to authenticate the creative metadata used by their ranking fu
 
 Signature verification may be an expensive operation, especially when repeated for each auction across many candidates. For instance, it is plausible for about 100 or more interest group ad candidates to participate in an on-device auction. Verifying the signed creative metadata for each of these ad candidates in `ranking.js` can add up to significant resource drain on a user device.
 
-Rather than verifying every ad candidate in `ranking.js`, an SSP could instead verify just the winning ad before it is rendered. The ranking function can return an object for each ad candidate with its rank, creative metadata along with its cryptographic signature and any other information needed for verification. TURTLEDOVE API upon determining the winning ad can call an SSP-provided verification function (`verification.js`) with the information supplied by the ranking function.
+Rather than verifying every ad candidate in `ranking.js`, an SSP could instead verify just the winning ad before it is rendered. The ranking function can return an object for each ad candidate with its rank, creative metadata along with its cryptographic signature and any other information needed for verification. TURTLEDOVE API upon determining the winning ad can call an SSP-provided verification function, `verification.js`, with the information supplied by the ranking function.
 
 `verification.js` is a JS function that executes locally within the browser and cannot send information off-device. The metadata used to determine the ad’s eligibility can be verified using the SSP’s public key hosted on a well known URL such as:
 
