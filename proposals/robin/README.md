@@ -14,7 +14,7 @@ ROBIN aligns closely with [TERN](https://github.com/WICG/turtledove/blob/master/
 Some SSPs solely rely on DSP-declared ad metadata (such as categories and advertiser domain) to enforce ad quality checks and publisher controls. Others use signals from their own ad scanning systems in addition to the DSP-provided ad metadata. This proposal focuses on the latter use case where detected classifications from an SSP’s ad scanning system might be used to enforce ad quality checks and publisher controls.
 
 ## Overview
-![robin overview](./robin-overview.png)
+![robin overview](./robin-overview.svg)
 
 Besides running an auction among many demand sources, SSPs also provide value to publishers by enforcing ad quality checks, brand safety blocks and other controls, such as custom pricing floors and deals. Some of these functions require contextual signals such as publisher domain and placement. In addition, an SSP may require creative metadata associated with interest group ads from their ad scanning system during the on-device auction. Since ad creatives are immutable in TURTLEDOVE, the associated metadata will not change with each request. SSPs can periodically scan DSPs’ ads and use the detected classifications to enforce publisher settings during the on-device auction. DSPs can cache the SSP’s ad metadata on a per-creative level and reuse it in their interest group response.
 
@@ -27,18 +27,20 @@ Upon receiving an interest group request, a DSP can request interest group creat
 
 Considering a DSP often partners with several SSPs, it may be beneficial to standardize the protocol for sharing the interest group creatives and their associated metadata between DSPs and SSPs. Interest group creative metadata request from a DSP to an SSP can contain an object for each creative and may look as follows:
 
-```
-[{      'creativeId': 'ad123'
-        'declaredMetadata': {'click_through_url': 'url123', 'categories'..}
-        'adCborUrl': 'https://dsp.com/ads/ad-123.wbn'
-        'height':100
-        'width':200
+```jsonc
+[{      
+  'creativeId': 'ad123'
+  'declaredMetadata': {'click_through_url': 'url123', 'categories'..}
+  'adCborUrl': 'https://dsp.com/ads/ad-123.wbn'
+  'height': 100
+  'width': 200
 },
-{       'creativeId': 'ad567'
-        'declaredMetadata': {'click_through_url': 'url567', 'categories'..}
-        'adCborUrl': 'https://dsp.com/ads/ad-567.wbn'
-        'height':150
-        'width':250
+{
+  'creativeId': 'ad567'
+  'declaredMetadata': {'click_through_url': 'url567', 'categories'..}
+  'adCborUrl': 'https://dsp.com/ads/ad-567.wbn'
+  'height': 150
+  'width': 250
 },
 …
 ]
@@ -46,12 +48,13 @@ Considering a DSP often partners with several SSPs, it may be beneficial to stan
 
 During the [incremental adoption path](https://github.com/WICG/turtledove#incremental-adoption-path), when winning interest group ads continue to be rendered with no new protections, a DSP can specify a creative using inline HTML code, for example:
 
-```
-[{      'creativeId': 'ad123',
-        'declaredMetadata': {'click_through_url': 'url123', 'categories'..},
-        'adHtml':'<html> Hello World </html>',
-        'height':100,
-        'width':200
+```jsonc
+[{
+  'creativeId': 'ad123',
+  'declaredMetadata': {'click_through_url': 'url123', 'categories'..},
+  'adHtml': '<html> Hello World </html>',
+  'height': 100,
+  'width': 200
 },
 …
 ]
@@ -59,14 +62,17 @@ During the [incremental adoption path](https://github.com/WICG/turtledove#increm
 
 Interest group creative metadata response from an SSP to a DSP may look as follows:
 
-```
-{       'creativeId': 'ad123',
-        // Opaque metadata provided by SSP for use in on-device auction.
-        'sspMetadata': {'click_through_url': 'url567', 'categories': ..},
-        'signature': 'w45rdhgg65674',
-        // RFC3339 timestamp until when the metadata is valid.
-        'expiryTimestamp': '2021-01-15T01:30:15.01Z'
-}
+```jsonc
+[{
+  'creativeId': 'ad123',
+  // Opaque metadata provided by SSP for use in on-device auction.
+  'sspMetadata': {'click_through_url': 'url567', 'categories': ..},
+  'signature': 'w45rdhgg65674',
+  // RFC3339 timestamp until when the metadata is valid.
+  'expiryTimestamp': '2021-01-15T01:30:15.01Z'
+},
+…
+]
 ```
 
 The response contains `sspMetadata` which can be an arbitrary JSON object that an SSP uses in the on-device auction. The `signature` returned from SSP servers allows to authenticate `sspMetadata` for a given interest group ad. The SSP-detected metadata, ad content and expiry timestamp can be serialized using a canonical representation such as [CBOR](https://cbor.io/) and used to compute the signature. The signature can be generated as:
@@ -84,7 +90,7 @@ The proposed out-of-band flow reduces networking from user devices, network cost
 Optionally, SSPs can provide a creative scanning API that allows DSPs to submit creatives for scanning and verification prior to receiving interest group requests. This approach can reduce interest group ad filtering when working with SSPs that require creatives to be scanned before the first impression. 
 
 ## On-device Policy and Publisher Controls Enforcement
-![robin policy and publisher controls enforcement](./robin-policy-and-publisher-controls-enforcement.png)
+![robin policy and publisher controls enforcement](./robin-policy-and-publisher-controls-enforcement.svg)
 
 When a user visits a publisher’s site, a contextual request is sent to the SSP. The SSP routes the bid requests to their DSP partners, maintaining the status quo. In addition to the usual ad response, an SSP can include `ranking.js` [(TURTLEDOVE Issue #70)](https://github.com/WICG/turtledove/issues/70) as well as the information necessary for enforcing publisher controls and ad quality checks in an on-device auction.
 
