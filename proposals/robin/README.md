@@ -30,19 +30,19 @@ Considering a DSP often partners with several SSPs, it may be beneficial to stan
 ```jsonc
 [{      
   'creativeId': 'ad123'
-  'declaredMetadata': {'click_through_url': 'url123', 'categories'..}
+  'declaredMetadata': {'click_through_url': 'url123', 'categories': ...}
   'adCborUrl': 'https://dsp.com/ads/ad-123.wbn'
   'height': 100
   'width': 200
 },
 {
   'creativeId': 'ad567'
-  'declaredMetadata': {'click_through_url': 'url567', 'categories'..}
+  'declaredMetadata': {'click_through_url': 'url567', 'categories': ...}
   'adCborUrl': 'https://dsp.com/ads/ad-567.wbn'
   'height': 150
   'width': 250
 },
-…
+...
 ]
 ```
 
@@ -51,12 +51,12 @@ During the [incremental adoption path](https://github.com/WICG/turtledove#increm
 ```jsonc
 [{
   'creativeId': 'ad123',
-  'declaredMetadata': {'click_through_url': 'url123', 'categories'..},
+  'declaredMetadata': {'click_through_url': 'url123', 'categories': ...},
   'adHtml': '<html> Hello World </html>',
   'height': 100,
   'width': 200
 },
-…
+...
 ]
 ```
 
@@ -66,12 +66,12 @@ Interest group creative metadata response from an SSP to a DSP may look as follo
 [{
   'creativeId': 'ad123',
   // Opaque metadata provided by SSP for use in on-device auction.
-  'sspMetadata': {'click_through_url': 'url567', 'categories': ..},
+  'sspMetadata': {'click_through_url': 'url567', 'categories': ...},
   'signature': 'w45rdhgg65674',
   // RFC3339 timestamp until when the metadata is valid.
   'expiryTimestamp': '2021-01-15T01:30:15.01Z'
 },
-…
+...
 ]
 ```
 
