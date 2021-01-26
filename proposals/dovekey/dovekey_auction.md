@@ -115,6 +115,10 @@ may lead to inconsistency in user experience, privacy protection and ads
 products functionality. To address the above issues, we can further simplify the 
 Dovekey flow as follows.
 
+![Simplifed Dovekey Server Combined Auction](SimplifiedDovekeyServerCombinedAuctionFlow.png?raw=true "Simplifed Dovekey Server Combined Auction")
+
+**Explanation**:
+
 1. The SSP's ad tag in the browser prepares the contextual ad requests as it 
    does so in the original TurtleDove and Dovekey proposal.
 1. The browser encrypts the contextual ad request so that only the SSP may 
@@ -123,7 +127,7 @@ Dovekey flow as follows.
    together and sends the bundle to the Dovekey server.
 1. The Dovekey server forwards the encrypted contextual ad request to the SSP, 
    then waits for the contextual ad response from the SSP.
-1. The Dovekey server caches conditional bids embedded in the contextual ad 
+1. The Dovekey server receives the ad response and caches conditional bids embedded in the contextual ad 
    response locally. Those cached bids will be considered for future IG ad 
    requests.
 1. The Dovekey server applies all the proposed functionality across all cachied 
@@ -132,11 +136,15 @@ Dovekey flow as follows.
 1. The Dovekey server runs a combined auction between cached IG bids eligible 
    for auction and contextual ad received from the SSP in contextual ad 
    response.
-1. The Dovekey server returns the winning bid and snippet to the browser for 
+1. The Dovekey server returns the winning bid and snippet to the browser and the ad tag (maybe in the form of an opaque handle) for 
    rendering.
 1. When the browser renders the winning ad snippet, the browser sends an 
    impression notification back to the Dovekey server to support budget, pacing 
    and microtargeting prevention. For details see later sections.
+
+At architecture level, the requests/response flow among multiple entities are shown below
+
+![Dovekey Combined Auction Architecture](DovekeyCombinedAuctionArchitecture.png?raw=true "Dovekey Combined Auction Architecture")
 
 In the event of Dovekey server production outage, the browser can send the 
 contextual ad request directly to the SSP to show only contextual ads to the 
