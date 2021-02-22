@@ -303,3 +303,12 @@ way as to make that impossible.
 There are various mechanisms for that which we're actively investigating, 
 including the use of [secret shares](https://en.wikipedia.org/wiki/Secret_sharing). The solution chosen 
 depends on the way that the Dovekey Server is set up and the trust model used. We plan on publishing future explainers with crypto details.
+
+### Phasing
+[FLEDGE](https://github.com/WICG/turtledove/blob/master/FLEDGE.md) is being explored as a "first experiment", as laid out in the FLEDGE explainer:
+
+> This document describes an early prototype for ads serving in the TURTLEDOVE family,
+> appropriate for experimentation before a fully-featured system is ready.
+> It would be the First "Locally-Executed Decision over Groups" Experiment.
+
+The current explainer is evaluating a path forward for the longer term, and will likely build on the lessons learned within FLEDGE.
