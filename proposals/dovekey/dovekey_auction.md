@@ -304,6 +304,10 @@ There are various mechanisms for that which we're actively investigating,
 including the use of [secret shares](https://en.wikipedia.org/wiki/Secret_sharing). The solution chosen 
 depends on the way that the Dovekey Server is set up and the trust model used. We plan on publishing future explainers with crypto details.
 
+> Update on March 9 2021: we published [Dovekey auction with secure 2PC](https://github.com/google/ads-privacy/blob/master/proposals/dovekey/dovekey_auction_secure_2pc.md)
+> explainer with high level description of a possible crypto design.
+
+
 ### Phasing
 [FLEDGE](https://github.com/WICG/turtledove/blob/master/FLEDGE.md) is being explored as a "first experiment", as laid out in the FLEDGE explainer:
 
