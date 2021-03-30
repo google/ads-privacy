@@ -137,7 +137,7 @@ forwarded to the on-device auction.
 
 The bid price constraint could look like the following:
 
-```json
+```jsonc
 {
   "seatbid": [{
     ...
