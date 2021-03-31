@@ -31,7 +31,7 @@ By itself this does not provide much in the way of guarantees because whoever is
 
 As Open Source code is public this also means that proprietary algorithms and information cannot be included; however the Open Source approach can be combined with sandboxing to allow for the execution of proprietary logic: an open-sourced server can run custom code in a sandboxed environment.
 
-### First vs third-party servers
+### Server governance
 
 The entity that controls and runs the server will have considerable power over the servers.
 
