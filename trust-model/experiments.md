@@ -38,6 +38,7 @@ As part of the FLEDGE proposal, both [buyers and sellers](https://github.com/WIC
 
 * Needs extensions to the FLEDGE API? **No**
 * Technology under test? **None, basic setup only.**
+* [Server code here](https://github.com/google/trusted-key-value-server)
 
 ### Secure enclaves
 
@@ -49,6 +50,7 @@ TEEs are designed to wrap around existing code and provide protections and remot
 
 * Needs extensions to the FLEDGE API? **No**
 * Technology under test? **TEEs**
+* [Server code here](https://github.com/google/trusted-key-value-server)
 
 #### Trusted Server Worklets
 
@@ -58,6 +60,7 @@ There are major questions here about whether the overhead of building such a ser
 
 * Needs extensions to the FLEDGE API? **Yes**
 * Technology under test? **TEE+Sandbox**
+* [Server code here](https://github.com/google/trusted-worklet-server)
 
 
 #### Trusted Worklet and Auction
@@ -66,6 +69,7 @@ Beyond running JS worklet code in a trusted environment, can we run a full aucti
 
 * Needs extensions to the FLEDGE API? **Yes**
 * Technology under test? **TEE+Sandbox**
+* [Server code here](https://github.com/google/trusted-worklet-server)
 
 ### Secure Multi-Party Computation (MPC)
 
