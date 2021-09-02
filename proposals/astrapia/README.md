@@ -28,7 +28,7 @@ We propose using the already planned [Aggregate Reporting Helper Server](https:/
 
 The diagram below shows the current flow in which encrypted event-level data is sent to ad tech companies who use the Helper servers to decrypt it and receive only aggregated data back.
 
-TODO: Attach Aggregation Service diagram
+![Aggregation](./Aggregation.png)
 
 We propose extending the FLEDGE API so that buyers and sellers can both list an IVT detection provider.  For example, when defining a new interest group this is done with the **change in bold**:
 
