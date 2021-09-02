@@ -55,7 +55,7 @@ There are open questions about how to make sure that the query response time is 
 
 The diagram is updated to show this flow:
 
-TODO: Attach Diagram
+![IVTprotectionprovider](./IVTprotectionprovider.png)
 
 ## Running detection models
 
