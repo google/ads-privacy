@@ -87,7 +87,7 @@ function isEventInvalid(userSignals) {
 
 Because this won’t be a generally open API, access to the API will only be given to a list of IVT detection providers that is controlled by browsers.  Note that this is not code that would run inside the browser, it’s the API interface that the trusted server would expose for the browser to call.
 
-TODO: Attach Diagram
+![IVTTrustedServer](./IVTTrustedServer.png)
 
 ### Alternatives
 There are two proposals for allowing machine learning on event-level data in a privacy safe way through the use of Secure Multi-Party Computation (MPC).  Both of these would be extensible to work with IVT detection:
