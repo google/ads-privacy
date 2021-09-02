@@ -67,7 +67,7 @@ Running pre-bid models on the interest-group only request would be less useful b
 
 This diagram explains the potential pre-bid flow:
 
-![IVTUntrustedServer](./IVTUntrustedServer.png)
+![UntrustedIVTServer](./UntrustedIVTServer.png)
 
 ### Post-bid IVT models
 As FLEDGE already supports trusted servers for the buyer and seller to supply realtime remarketing signals, we suggest adding another trusted server for IVT detection providers that can run IVT detection models over the decrypted events. This IVT trusted server can return aggregated data for IVT manual analysis, as well as aggregated IVT decisions, in order to produce clean aggregated ad data for use in buyers/sellers reporting and billing.
