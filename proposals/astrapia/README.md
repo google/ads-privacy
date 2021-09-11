@@ -14,8 +14,8 @@ Detecting invalid traffic (IVT) is an essential part of the ads ecosystem, and i
 While this proposal is designed for FLEDGE it could also work in other areas where user signals need to be limited, for example, with a privacy budget.
 
 IVT detection models are run in two ways today:
-Pre-bid: This model runs before an ad is served.  This relies on detecting whether the ad request is deemed valid or not based on either attributes of the request (e.g., request coming from data center) or entity based reputation derived from previous activity (e.g., past requests from given IP for a given website were found to all be invalid).  It’s on the critical path for ad requests.
-Post-bid: This model runs after an ad is served, clicked, or converted.  This is not on the critical path to serve an ad and is run after the fact (e.g. examine arbitrary traffic slices to identify invalid traffic and label the corresponding events as invalid). Post-bid detection can be done by automated processes or also through manual analysis and labeling/enforcement.
+   1. Pre-bid: This model runs before an ad is served.  This relies on detecting whether the ad request is deemed valid or not based on either attributes of the request (e.g., request coming from data center) or entity based reputation derived from previous activity (e.g., past requests from given IP for a given website were found to all be invalid).  It’s on the critical path for ad requests.
+   1. Post-bid: This model runs after an ad is served, clicked, or converted.  This is not on the critical path to serve an ad and is run after the fact (e.g. examine arbitrary traffic slices to identify invalid traffic and label the corresponding events as invalid). Post-bid detection can be done by automated processes or also through manual analysis and labeling/enforcement.
 
 These approaches identify different types of IVT, and both are necessary for comprehensive IVT detection.
 
