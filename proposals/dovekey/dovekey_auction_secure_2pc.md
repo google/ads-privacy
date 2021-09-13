@@ -316,6 +316,8 @@ with a carefully chosen probability:
       bid from participating in the auction. 
     * If the campaign is behind the delivery schedule, the probability is lower.
 
+To automatically adjust the probability based on ahead/behind the delivery schedule in near real time (e.g. every 10 minutes), we may resort to [PID controllers](https://en.wikipedia.org/wiki/PID_controller) to compute the probability. A basic PID controller ([pseudocode](https://en.wikipedia.org/wiki/PID_controller#Pseudocode)) can be implemented in secure 2PC, where the entire calculation can be done offline (i.e. in the log process pool in [Figure 1](#fig-1-server-cluster-configuration)).
+
 The Dovekey server cluster could perform this operation in two phases. 
 
 First, the Dovekey server cluster would periodically compute the 

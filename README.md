@@ -73,6 +73,7 @@ These conceptual discussions around additional ideas, modifications, and extensi
 * [Augury API](proposals/augury)
 * [SCAUP](proposals/scaup)
 * [Browser Enforced Frequency Capping](proposals/browser-frequency-capping)
+* [ASTRAPIA](proposals/astrapia)
 * [FLEDGE for real-time bidding](proposals/fledge-rtb)
 
 ## Experiments
