@@ -144,7 +144,8 @@ It may be beneficial to standardize the creatives scanning API interface provide
 POST <SELLER_CREATIVE_SCANNING_API_ENDPOINT>
 Authorization: Bearer <INSERT_ACCESS_TOKEN_HERE>
 Content-Type: application/json
-
+```
+```jsonc
 {
   // Some creative metadata declared by the buyer.
   "advertiserName": "Test",
