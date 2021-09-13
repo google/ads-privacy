@@ -73,7 +73,8 @@ These conceptual discussions around additional ideas, modifications, and extensi
 * [Augury API](proposals/augury)
 * [SCAUP](proposals/scaup)
 * [Browser Enforced Frequency Capping](proposals/browser-frequency-capping)
- 
+* [FLEDGE for real-time bidding](proposals/fledge-rtb)
+
 ## Experiments
 
 These are experiment proposals we are evaluating to test approaches to strengthen user privacy protections in RTB:
