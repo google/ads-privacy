@@ -1,6 +1,6 @@
 ## Structured UserAgent Specification
 
-(OpenRTB v2.6 Proposal)
+(Proposal for adding into OpenRTB 2.x specification, initially as a Standard Extension)
 
 ### Background
 
