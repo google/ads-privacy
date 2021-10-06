@@ -1,5 +1,7 @@
 # Experiment proposal: Structured User Agent
 
+**NOTE: This documented is now superseded by the proposed [OpenRTB Structured UserAgent Specification](https://github.com/google/ads-privacy/blob/master/experiments/structured-ua/openrtb.md).**
+
 *This experiment proposal does not reflect plans of any browser, including Chrome, to support similar means of in-browser ad personalization. While publicly sharing the results of these experiments can lead to productive discussions between ad tech companies as well as browser vendors and privacy advocates on how ad personalization can be supported with stronger user privacy protections, these discussions may not necessarily lead to browsers building support for the use case or the flow similar to the one proposed in this experiment.*
 
 *The experiment may influence, but does not necessarily represent Google’s current or future real-time bidding product plans.*
