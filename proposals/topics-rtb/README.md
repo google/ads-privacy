@@ -102,7 +102,7 @@ The OpenRTB representation can look like the following:
 }
 ```
 
-- Should the taxonomy version be defined as a separate extension to avoid repetitive text? This proposal is similar to [Segment Taxonomies](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md). For example:
+- Should the taxonomy version be defined as a Data object-level extension to reduce wire size? This proposal is similar to [Segment Taxonomies](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md). For example:
 
 ```
 {
