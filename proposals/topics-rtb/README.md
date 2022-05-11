@@ -112,7 +112,7 @@ The OpenRTB representation can look like the following:
       {
         "id": "chrome_topics_api",
         "ext": {
-          "segtax": "tax_v1",   
+          "segtax": "tax_v1",
           "segclass": "class_v1",
         }
         "segment": [
