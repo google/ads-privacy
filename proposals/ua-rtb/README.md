@@ -27,7 +27,7 @@ RTB exchanges could apply User-Agent generalization on inventory that the publis
 
 ## Structured User Agent
 
-[Structured User-Agent](https://github.com/google/ads-privacy/tree/master/experiments/structured-ua) (SUA) is a bid request representation of the User-Agent information that breaks it down into a strongly-typed object with fields describing the browser, platform, architecture and device.  The Structured User-Agent is available in the [Google Authorized Buyers protocol](https://developers.google.com/authorized-buyers/rtb/realtime-bidding-guide) (`BidRequest.user_agent_data`) and as an [OpenRTB extension](https://developers.google.com/authorized-buyers/rtb/openrtb-guide) (`BidRequest.device.ext.user_agent_data`).  Consider this example of both representations of the User-Agent for the same request:
+[Structured User-Agent](https://github.com/google/ads-privacy/tree/master/experiments/structured-ua) (SUA) is a bid request representation of the User-Agent information that breaks it down into a strongly-typed object with fields describing the browser, platform, architecture and device.  The Structured User-Agent is available in the [Google Authorized Buyers protocol](https://developers.google.com/authorized-buyers/rtb/realtime-bidding-guide) (`BidRequest.user_agent_data`) and as an [OpenRTB extension](https://developers.google.com/authorized-buyers/rtb/openrtb-guide) (`BidRequest.device.sua`).  Consider this example of both representations of the User-Agent for the same request:
 
 _Raw User-Agent string:_
 
@@ -127,19 +127,19 @@ A new field can be added to the RTB protocol to communicate what privacy protect
    </td>
   </tr>
   <tr>
-   <td style="background-color: #dde5f0">user_agent
+   <td style="background-color: #dde5f0">ua
    </td>
    <td style="background-color: #dde5f0">integer
    </td>
-   <td style="background-color: #dde5f0">Privacy treatment for the User-Agent string (field BidRequest.ua).  See Table 1.
+   <td style="background-color: #dde5f0">Privacy treatment for the User-Agent string.  See Table 1.
    </td>
   </tr>
   <tr>
-   <td style="background-color: #eef2f8">user_agent_data
+   <td style="background-color: #eef2f8">sua
    </td>
    <td style="background-color: #eef2f8">integer
    </td>
-   <td style="background-color: #eef2f8">Privacy treatment for the Structured User Agent (field BidRequest.ext.user_agent_data).  See Table 2.
+   <td style="background-color: #eef2f8">Privacy treatment for the Structured UserAgent.  See Table 2.
    </td>
   </tr>
 </table>
@@ -221,7 +221,7 @@ Table 2: Privacy treatments for Structured User Agent
 Example (OpenRTB/JSON) for a request where the `BidRequest.ua` value is coarsened:
 
 ```
-`"privacy_treatments": { user_agent: 1 }`
+`"privacy_treatments": { "ua": 1 }`
 ```
 
 These fields can provide transparency into the bid request field generalization that an exchange may choose to apply to a given request, allowing bidders to anticipate and act on these changes, and make it easier to evaluate their impact.
