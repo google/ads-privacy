@@ -223,7 +223,7 @@ Table 2: Privacy treatments for Structured User Agent
 Example (OpenRTB/JSON) for a request where the `BidRequest.ua` value is coarsened:
 
 ```
-`"privacy_treatments": { "ua": 1 }`
+"privacy_treatments": { "ua": 1 }
 ```
 
 These fields can provide transparency into the bid request field generalization that an exchange may choose to apply to a given request, allowing bidders to anticipate and act on these changes, and make it easier to evaluate their impact.
