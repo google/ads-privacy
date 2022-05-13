@@ -1,8 +1,10 @@
-# Disclaimer
+# User Agent generalization in RTB bid requests
+
+## Disclaimer
 
 _Teams from across Google, including ads teams, are actively engaged in industry dialog about new technologies that can ensure a healthy ecosystem and preserve core business models. Online discussions (e.g on GitHub) of technology proposals should not be interpreted as commitments about Google products. This proposal is specific to real-time bidding and does not reflect plans of any browser, including Chrome, about similar or related changes._
 
-# Background
+## Background
 
 The raw *User-Agent* string often found in RTB bid requests (`Device.ua` field in OpenRTB) typically serves for two main broad categories of use cases:
 
@@ -11,11 +13,11 @@ The raw *User-Agent* string often found in RTB bid requests (`Device.ua` field i
 
 At the same time, the information about the user's device carried in the raw User-Agent string is fairly granular as it can include, for instance, minor and micro browser and OS versions, device firmware build and more.  Such granular information may create risks of covert tracking by bad actors, who might attempt to re-identify end user devices even when cookies or device advertising IDs are not available (e.g., in private browsing mode) or they are reset.
 
-# Summary
+## Summary
 
 Covert tracking risks can be reduced by _generalizing or redacting_ the information about the User-Agent in bid requests to achieve desired privacy goals (for example, some level of K-anonymity).  To improve privacy protections in real-time bidding, we propose approaches to generalizing the user agent information in bid requests, which enable the continued support of the device and browser type detection use case.  We plan to look at how pre-bid IVT detection and filtering use cases can be supported in a privacy-centric manner separately.
 
-## Related work
+### Related work
 
 Chrome [announced](https://groups.google.com/a/chromium.org/g/blink-dev/c/e3pZJu96g6c) [plans](https://blog.chromium.org/2021/09/user-agent-reduction-origin-trial-and-dates.html) to [reduce the User-Agent](https://blog.chromium.org/2021/05/update-on-user-agent-string-reduction.html), so that the reduced User-Agent string will continue to provide access to “_browser major version, platform name, and distinguish[ing] between desktop and mobile_”. 
 
@@ -23,9 +25,9 @@ The generalization techniques described below are largely aligned with the appro
 
 RTB exchanges could apply User-Agent generalization on inventory that the publishers and/or the users view as more privacy-sensitive (for example, where users opted out of personalized advertising) or across all inventory.
 
-# User Agent generalization in bid requests
+## User Agent generalization in bid requests
 
-## Structured User Agent
+### Structured User Agent
 
 [Structured User-Agent](https://github.com/google/ads-privacy/tree/master/experiments/structured-ua) (SUA) is a bid request representation of the User-Agent information that breaks it down into a strongly-typed object with fields describing the browser, platform, architecture and device.  The Structured User-Agent is available in the [Google Authorized Buyers protocol](https://developers.google.com/authorized-buyers/rtb/realtime-bidding-guide) (`BidRequest.user_agent_data`) and as an [OpenRTB extension](https://developers.google.com/authorized-buyers/rtb/openrtb-guide) (`BidRequest.device.sua`).  Consider this example of both representations of the User-Agent for the same request:
 
@@ -59,7 +61,7 @@ Version generalization can be applied to most browsers and platforms that appear
 After adopting the Structured User Agent, bidders should not need the raw User-Agent string in bid requests for the device and browser type detection and targeting, as they should be able to derive sufficient information from the SUA.  The RTB protocol also includes the Device object with details about the detected device (brand, screen size etc.), largely determined from the _User-Agent_ header.
 
 
-## Generalized User Agent string
+### Generalized User Agent string
 
 The presence of the traditional User-Agent string field in a bid request can be important for backwards compatibility, as bidders might rely on the information parsed from the UA string. That said, there might be no gain for privacy from the Structured User Agent representation if the high-entropy information is still available in the User-Agent string field.  That field should also be generalized to improve privacy protections.  Instead of carrying the original User-Agent header value, the `BidRequest.ua` field can be populated with a string that follows the expected User-Agent syntax but contains only the amount of information comparable to the information in the SUA.  Using the example above, the generalized string can look as follows:
 
@@ -77,7 +79,7 @@ Notice that in this generalized UA string it is particularly important to reprod
 
 Generalized UA strings should be compatible with the existing User-Agent parsers and classifiers that work with the original values; in other words, a generalized User Agent string should yield the same or a very similar classification as the original one (subject to the expected loss of detailed information, for instance, about minor and micro versions). The User-Agent string generalization algorithm needs to be evaluated for backwards compatibility – for instance, by testing raw and generalized strings with popular classification libraries.
 
-## UA string generalization examples
+### UA string generalization examples
 
 <table>
   <tr>
