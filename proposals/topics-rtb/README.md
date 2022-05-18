@@ -111,7 +111,7 @@ The OpenRTB representation can look like the following:
   "user": {
     "data": [
       {
-        "name": "chrome.com", // or perhaps 'publisher.com' or 'thirdpartycaller.com' is more appropriate
+        "name": "apicaller.com", 
         "ext": {
           "segtax": 600
           "segclass": "v1" //this is not considered in the sda spec, but seems the appropriate place for it
