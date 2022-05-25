@@ -95,7 +95,7 @@ The OpenRTB representation can look like the following:
         "name": "apicaller.com", 
         "ext": {
           "segtax": 600
-          "segclass": "v1" //this is not considered in the Segment Taxonomies / Seller Defined Audiences spec, but seems the appropriate place for it
+          "segclass": "v1" // this is not considered in the Segment Taxonomies / Seller Defined Audiences spec, but seems the appropriate place for it
         }
         "segment": [
           {
