@@ -83,7 +83,7 @@ The OpenRTB representation can look like the following:
 
 ## Open Questions
 
-- Perhaps the specification should follow the [Segment Taxonomies](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) proposal precisely, as some parties have already begun transmitting this way.  Please note the origin trial period taxonomy has already been assigned segtax 600 and additional segtax id's (it is an enum, not a string) are simple to reserve in blocks from the IAB. In this case, `user.data.id` doesn't typically have meaning, `user.data.name` is the entity reported to have chosen audience membership in the segment. New Topics taxonomy versions would receive new IDs in the ["Vendor specific Taxonomies" list] (https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md#approved-vendor-specific-taxonomies) based on the existing process, optionally from a pre-allocated block.
+- Perhaps the specification should follow the [Segment Taxonomies](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) proposal precisely, as some parties have already begun transmitting this way.  Please note the origin trial period taxonomy has already been assigned segtax 600 and additional segtax id's (it is an enum, not a string) are simple to reserve in blocks from the IAB. In this case, `user.data.id` doesn't typically have meaning, `user.data.name` is the entity reported to have chosen audience membership in the segment. In the case of this segment taxonomy, that would be the entity which called the Topics API. New Topics taxonomy versions would receive new IDs in the ["Vendor specific Taxonomies" list] (https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md#approved-vendor-specific-taxonomies) based on the existing process, optionally from a pre-allocated block.
 
 
 ```
@@ -92,7 +92,7 @@ The OpenRTB representation can look like the following:
   "user": {
     "data": [
       {
-        "name": "apicaller.com", 
+        "name": "apicaller.com", // the entity which called the Topics API
         "ext": {
           "segtax": 600
           "segclass": "v1" // this is not considered in the Segment Taxonomies / Seller Defined Audiences spec, but seems the appropriate place for it
