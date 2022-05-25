@@ -102,7 +102,7 @@ The OpenRTB representation can look like the following:
 }
 ```
 
-- Perhaps the specification should follow the [Segment Taxonomies](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md). proposal precisely, as some parties have already begun transmitting this way.  Please note the origin trial period taxonomy has already been assigned segtax 600 and additional segtax id's (it is an enum, not a string) are simple to reserve in blocks from the IAB. In this case, user.data.id doesn't typically have meaning, user.data.name is the entity reported to have chosen audience membership in the segment. New Topics taxonomy versions would receive new IDs in the "Vendor specific Taxonomies" list based on the existing process, optionally from a pre-allocated block.
+- Perhaps the specification should follow the [Segment Taxonomies](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md). proposal precisely, as some parties have already begun transmitting this way.  Please note the origin trial period taxonomy has already been assigned segtax 600 and additional segtax id's (it is an enum, not a string) are simple to reserve in blocks from the IAB. In this case, user.data.id doesn't typically have meaning, user.data.name is the entity reported to have chosen audience membership in the segment. New Topics taxonomy versions would receive new IDs in the ["Vendor specific Taxonomies" list] (https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md#approved-vendor-specific-taxonomies) based on the existing process, optionally from a pre-allocated block.
 
 
 ```
