@@ -12,7 +12,7 @@ To enable different exchanges to test FLEDGE in Origin Trials with publishers th
 
 Sellers might need to update their previously provided auction configuration for auctions run when [refreshing an ad slot](https://developers.google.com/publisher-tag/samples/refresh). To support auction configuration updates, later calls with the same `seller` would replace the stored component `AuctionConfig` for that seller and slot, while `Slot.addComponentAuction(seller, null)` would remove it.
 
-Component seller bids into the top-level auction will be interpreted by Ad Manager as “publisher payout net of fees or revshares” expressed in USD CPM units. Ad Manager will compare the bids of all sellers and the best contextual ad selected via [dynamic allocation](https://support.google.com/admanager/answer/3721872?hl=en), and will serve the ad with the highest bid.
+Component seller bids into the top-level auction will be interpreted by Ad Manager as “publisher payout net of fees or revshares” expressed in USD CPM units. Ad Manager will compare the bids of all sellers and the best contextual ad (which is selected via [dynamic allocation](https://support.google.com/admanager/answer/3721872?hl=en)), and will serve the ad with the highest bid.
 
 ## Next steps
 We’re working to have the `addComponentAuction` API available by early July and look forward to testing during the origin trial. 
