@@ -26,6 +26,7 @@ OpenRTB `segtax` 600 indicates `taxonomy_version` 1. New Topics taxonomy version
 
 The `data.segment` array will contain a list of Topics available in the browser to an advertising exchange. Each element in the `segment` array can hold a single topic. The order of topics in the segment array is not specified. The array should not contain duplicate topics.
 - `segment.id` will be the topic ID.
+- `segment.name` will **not** be set
 - `segment.value` will **not** be set
 
 
@@ -59,8 +60,8 @@ The OpenRTB representation can look like the following:
         segment: [
             		{ id: "111" },
             		{ id: "222" },
-                { id: "333" }
-		             ]
+                        { id: "333" }
+                 ]
        }
  }
 }
