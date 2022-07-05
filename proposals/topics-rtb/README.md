@@ -19,8 +19,8 @@ OpenRTB `BidRequest.user.data` can be used to represent Topics.
 
 | Attributes  | Type        | Description |
 | ------------ | ----------- | ----------- |
-| `segtax`  | Integer       | A taxonomy enumerated in the [segtax extension](https://raw.githubusercontent.com/InteractiveAdvertisingBureau/openrtb/master/extensions/community_extensions/segtax.md) |
-| `segclass`   | String        |  Classifier version |
+| `segtax`  | Integer       | A taxonomy enumerated in the [segtax extension](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) |
+| `segclass`   | String        |  Classifier version, as provided by the browser |
 
 OpenRTB `segtax` 600 indicates `taxonomy_version` 1. New Topics taxonomy versions will receive new IDs in the ["Vendor specific Taxonomies" list](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md#approved-vendor-specific-taxonomies) based on the existing process, optionally from a pre-allocated block.
 
@@ -41,17 +41,17 @@ For example, when Chrome returns the following:
   - Topic: `“222”`
 - Topic 3:
   - Taxonomy Version: `“tax_v1”`
-  - Classifier Version: `“class_v1”`
+  - Classifier Version: `“class_v2”`
   - Topic: `“333”`
 
-The OpenRTB representation can look like the following:
+Where in the above return, there are two classifier versions and one taxonomy version. The OpenRTB representation can look like the following:
 
 ```
 {
   ...,
   "user": {
     "data": 
-      {
+      [{
         "name": "apicaller.com",
         "ext": {
               "segtax": 600,
@@ -59,10 +59,19 @@ The OpenRTB representation can look like the following:
                },
         segment: [
             		{ id: "111" },
-            		{ id: "222" },
-                        { id: "333" }
+            		{ id: "222" }
                  ]
-       }
+       },
+       {
+        "name": "apicaller.com",
+        "ext": {
+              "segtax": 600,
+              "segclass": "v1"
+               },
+        segment: [
+                { id: "333" }
+                 ]
+       }]
  }
 }
 ```
