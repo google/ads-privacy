@@ -9,7 +9,7 @@
 | Attributes  | Type        | Description |
 | ------------ | ----------- | ----------- |
 | Taxonomy Version  | String       | Represents the version of the topic’s categories. |
-| Classifier Version   | String        |  Represents the version of the classifier used to categorize sites. |
+| Model Version   | String        |  Represents the version of the classifier model used to categorize sites. |
 | Topic   | Integer        |  Represents the Topics ID from the taxonomy identified by the Taxonomy Version. |
 
 OpenRTB `BidRequest.user.data` can be used to represent Topics.
@@ -33,15 +33,15 @@ The `data.segment` array will contain a list of Topics available in the browser 
 For example, when Chrome returns the following:
 - Topic 1:
   - Taxonomy Version: `“tax_v1”`
-  - Classifier Version: `“class_v1”`
+  - Model Version: `“2206021246”`
   - Topic: `“111”`
 - Topic 2:
   - Taxonomy Version: `“tax_v1”`
-  - Classifier Version: `“class_v1”`
+  - Model Version: `“2206021246”`
   - Topic: `“222”`
 - Topic 3:
   - Taxonomy Version: `“tax_v1”`
-  - Classifier Version: `“class_v2”`
+  - Model Version: `“2206021247”`
   - Topic: `“333”`
 
 Where in the above return, there are two classifier versions and one taxonomy version. The OpenRTB representation can look like the following:
@@ -55,7 +55,7 @@ Where in the above return, there are two classifier versions and one taxonomy ve
         "name": "apicaller.com",
         "ext": {
               "segtax": 600,
-              "segclass": "v1"
+              "segclass": "2206021246"
                },
         segment: [
             		{ id: "111" },
@@ -66,7 +66,7 @@ Where in the above return, there are two classifier versions and one taxonomy ve
         "name": "apicaller.com",
         "ext": {
               "segtax": 600,
-              "segclass": "v1"
+              "segclass": "2206021247"
                },
         segment: [
                 { id: "333" }
