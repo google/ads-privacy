@@ -1,4 +1,4 @@
-# Demo for testing FLEDGE component auctions with GAM
+# Demo for testing FLEDGE component auctions with Ad Manager
 
 This document provides a walkthrough of a basic integration with GPT’s ComponentAuction API to test FLEDGE component auction experimental support in Ad Manager, explains how the demo code works, and shows how to use Chrome DevTools for FLEDGE debugging. Most of the same information can be found on the demo site too.
 
