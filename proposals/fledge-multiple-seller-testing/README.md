@@ -18,3 +18,6 @@ Component seller bids into the top-level auction will be interpreted by Ad Manag
 Experimental support in GPT is now available. Please see the [GPT developer documentation](https://developers.google.com/publisher-tag/reference#googletag.config.componentauctionconfig) for further details. 
 
 While we're not sure what support for multiple FLEDGE sellers might look like in Ad Manager long-term, we're committed to iterating toward a holistic solution based on what we learn from these tests and discussions with partners as we work toward a more privacy safe web. 
+
+## Demo
+A walkthrough of a basic setup for testing FLEDGE component auctions with Ad Manager via GPT is available [here](demo.md).
