@@ -11,31 +11,30 @@ First, follow the instructions at https://developer.chrome.com/blog/fledge-api/#
 
 - Next, you visit the publisher site which loads GPT and runs a script that creates an AuctionConfig for the component seller "https://fledge-multi-seller-with-gpt.glitch.me" and passes it to the GPT API to participate in the component auction.
 
-```
+```javascript
 const auctionConfig = {
   seller: "https://fledge-multi-seller-with-gpt.glitch.me", // should https & same as decisionLogicUrl's origin
   // x-allow-fledge: true
-  decisionLogicUrl:
-  "https://fledge-multi-seller-with-gpt.glitch.me/ssp/decision-logic.js",
+  decisionLogicUrl: "https://fledge-multi-seller-with-gpt.glitch.me/ssp/decision-logic.js",
   interestGroupBuyers: [
-  "https://fledge-multi-seller-with-gpt.glitch.me",
+    "https://fledge-multi-seller-with-gpt.glitch.me",
   ],
   auctionSignals: { auction_signals: "auction_signals" },
   sellerSignals: { seller_signals: "seller_signals" },
   perBuyerSignals: {
-  "https://fledge-multi-seller-with-gpt.glitch.me": {
-  per_buyer_signals: "per_buyer_signals",
-  },
-  },
+    "https://fledge-multi-seller-with-gpt.glitch.me": {
+      per_buyer_signals: "per_buyer_signals",
+    }
+  }
 };
 
 auctionSlot.setConfig({
   componentAuction: [
     {
-    configKey: "https://fledge-multi-seller-with-gpt.glitch.me",
-    auctionConfig: auctionConfig,
-    },
-  ],
+      configKey: "https://fledge-multi-seller-with-gpt.glitch.me",
+      auctionConfig: auctionConfig,
+    }
+  ]
 });
 ```
 
