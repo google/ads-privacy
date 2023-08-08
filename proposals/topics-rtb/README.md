@@ -21,6 +21,7 @@ OpenRTB `BidRequest.user.data` can be used to represent Topics.
 | ------------ | ----------- | ----------- |
 | `segtax`  | Integer       | A taxonomy enumerated in the [segtax extension](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) |
 | `segclass`   | String        |  Classifier version, as provided by the browser |
+| `method` | Enum | 1: from window.browsing.topics(), 2: from a request header |
 
 OpenRTB `segtax` 600 indicates `taxonomy_version` 1. New Topics taxonomy versions will receive new IDs in the ["Vendor specific Taxonomies" list](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md#approved-vendor-specific-taxonomies) based on the existing process, optionally from a pre-allocated block.
 
@@ -55,7 +56,8 @@ Where in the above return, there are two classifier versions and one taxonomy ve
         "name": "apicaller.com",
         "ext": {
               "segtax": 600,
-              "segclass": "2206021246"
+              "segclass": "2206021246",
+              "method": 2
                },
         segment: [
             		{ id: "111" },
@@ -66,7 +68,8 @@ Where in the above return, there are two classifier versions and one taxonomy ve
         "name": "apicaller.com",
         "ext": {
               "segtax": 600,
-              "segclass": "2206021247"
+              "segclass": "2206021247",
+              "method": 1
                },
         segment: [
                 { id: "333" }
