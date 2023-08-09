@@ -124,8 +124,8 @@ FLEDGE allows to pass buyer-specific contextual signals into the on-device biddi
 
 #### Example of how a Seller would interpret and forward Buyer `igbid`s
 
-- Each igbuyer.origin that the buyer provides should be included as an interestGroupBuyer(s) entry in the seller's auctionConfig.
-- For each combination of origin and buyerdata, there should be a corresponding perBuyerSignals key:value pair in the seller's auctionConfig. In this pairing, the origin serves as the key, and the buyerdata acts as the associated value.
+- Each igbuyer.igdomain that the buyer provides should be included as an interestGroupBuyer(s) entry in the seller's auctionConfig.
+- For each combination of igdomain and buyerdata, there should be a corresponding perBuyerSignals key:value pair in the seller's auctionConfig. In this pairing, the igdomain serves as the key, and the buyerdata acts as the associated value.
 
 Bid Response from Buyer to Exchange/SSP
 ```
