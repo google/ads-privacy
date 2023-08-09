@@ -122,6 +122,66 @@ To ensure that only the interest groups actually owned by the buyer can particip
 
 FLEDGE allows to pass buyer-specific contextual signals into the on-device bidding functions via the [`perBuyerSignals`](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#32-on-device-bidding) bidding function input. This data could be constructed by the bidder server-side in the form of an *arbitrary JSON object* during the contextual bid request and sent back to the exchange via the `buyerdata` field as part of the `InterestGroupBuyer` object of the OpenRTB contextual bid response extension. The exchange can then propagate `perBuyerSignals` to the browser and specify as part of the [`auctionConfiguration`](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#21-initiating-an-on-device-auction) object if the buyer is eligible for the on-device auction. The browser running the on-device auction will pass the `perBuyerSignals` from the `auctionConfiguration` into the corresponding bidding function based on the buyer’s domain name.
 
+#### Example of how a Seller would interpret and forward Buyer `igbid`s
+
+- Each igbuyer.origin that the buyer provides should be included as an interestGroupBuyer(s) entry in the seller's auctionConfig.
+- For each combination of origin and buyerdata, there should be a corresponding perBuyerSignals key:value pair in the seller's auctionConfig. In this pairing, the origin serves as the key, and the buyerdata acts as the associated value.
+
+Bid Response from Buyer to Exchange/SSP
+```
+{
+  "bidid": "12345",
+  "id": "12345",
+  // traditional contextual bid
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "impid": "1"
+        }
+      ]
+    }
+  ],
+  "ext": {
+    "igbid": [
+      {
+        "impid": "1",
+        "igbuyer": [
+          {
+            "igdomain": "https://igdomain.net",
+            "buyerdata": {
+              "a": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Auction Config (a component of the full bid response) from Seller to Publisher/Supply-Source
+```
+{
+  "auctionConfig": {
+    "seller": "https://seller.com",
+    "decisionLogicUrl": "https://seller.com/decision-logic.js",
+    // one for each igdomain
+    "interestGroupBuyers": [                
+      "https://igdomain.net"
+    ],
+    "perBuyerSignals": {
+      // each igdomain organized into unique perBuyerSignal
+      "https://igdomain.net": {      
+        "buyerSignal": {
+          "a": 1
+        }
+      }
+    }
+  }
+}
+```
+
 #### Bid integrity protections
 
 Since in the [TURTLEDOVE](https://github.com/WICG/turtledove) proposal, the bid computation and the final auction are to be run locally on the device, this opens up new potential abuse vectors that may affect the integrity of bid values and the final outcome of the auction, making it more difficult to trust on-device auction results (see, for example, [issue #214](https://github.com/WICG/turtledove/issues/214)).
