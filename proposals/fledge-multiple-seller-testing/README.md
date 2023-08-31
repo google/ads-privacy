@@ -19,3 +19,6 @@ We're committed to iterating toward a holistic solution based on what we learn f
 
 ## Demo
 A walkthrough of a basic setup for testing Protected Audience component auctions with Ad Manager via GPT is available [here](demo.md).
+
+## Manual testing
+To help developers build, test, and debug Protected Audience API integrations, Ad Manager has developed a mechanism for developers to be able to ensure that the Google Publisher Tag (GPT) runs a Protected Audience auction when conducting local testing.  If you are interested, please sign up [here](https://services.google.com/fb/forms/uastringformultisellertestsignup/).
