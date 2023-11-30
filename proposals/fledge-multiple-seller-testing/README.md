@@ -38,7 +38,7 @@ A: Among all of the sizes a publisher specifies for a given ad slot, Ad Manager 
 
 This logic is subject to change as we experiment with optimizations. We will continue to update this FAQ if the implementation changes. 
 
-**Q: How does Ad Manager plan to use Chrome-facilitated testing labels?** 
+**Q: How does Ad Manager plan to use Chrome-facilitated testing labels?**  
 A: Please see our November 2023 testing update [here](https://support.google.com/admanager/answer/13178817?hl=en&ref_topic=12264880&sjid=16287796969466812891-NA), which describes our plans in detail. 
 
 **Q: What reporting is available to publishers in Ad Manager about Protected Audience auctions won by non-Google sellers?**
