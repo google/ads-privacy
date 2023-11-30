@@ -25,9 +25,9 @@ To help developers build, test, and debug Protected Audience API integrations, A
 
 ## FAQ
 **Q: Does Ad Manager enforce a timeout for Protected Audience auctions?**
-A: Ad Manager currently sets a timeout of 5 seconds for Protected Audience auctions, inclusive of all component auctions and the top level auction. We plan to run experiments with different timeouts on a small fraction of traffic to identify a timeout value that maximizes publisher performance and minimizes impact to user experience. 
+A: Ad Manager currently sets a timeout of 5 seconds for Protected Audience auctions, inclusive of all component auctions and the top level auction. Note that if the auction timeouts then the best contextual ad will be rendered, if there is one. 
 
-We will continue to update this FAQ based on the results of those experiments.
+We plan to run experiments with different timeouts on a small fraction of traffic to identify a timeout value that maximizes publisher performance and minimizes impact to user experience. We will continue to update this FAQ based on the results of those experiments.
 
 **Q: How does Ad Manager decide which ad size to use for the PA auction?** 
 A: Among all of the sizes a publisher specifies for a given ad slot, Ad Manager currently apply the following logic to select the size used for the PA auction:
