@@ -1,4 +1,4 @@
-# FLEDGE Video and Native Rendering Proposal
+# Protected Audience API Video and Native Rendering Proposal
 
 This post proposes a rendering approach to render native and video ads using Protected Audience API.
 
