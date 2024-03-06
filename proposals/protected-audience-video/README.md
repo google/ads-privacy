@@ -212,57 +212,17 @@ By reusing the structure of existing Tracking and Click events we intend to prov
 
 #### 3.3.1. FencedFrameRegisteredDestination Node
 
+|  |  |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Player Support                       | Required for Protected Audience API                                                                                     |
+| Required in Response                 | No                                                                                                                      |
+| Parent                               | TrackingEvents, ClickTracking, CustomClicks                                                                             |
+| Bounded                              | 0-1                                                                                                                     |
+| Content                              | (optional) The eventData to be included in a call to the Fenced Frame Reporting API with preregistered destination URL. |
+| <b> Attributes </b>                  | <b> Description </b>                       |
+| &nbsp;&nbsp;&nbsp;&nbsp; eventType   | The eventType for a registered ad beacon   |
+| &nbsp;&nbsp;&nbsp;&nbsp; destination | The buyer or seller that should be pinged. |
 
-<table>
-  <tr>
-   <th>Player Support
-   </th>
-   <th>Required for Protected Audience API
-   </th>
-  </tr>
-  <tr>
-   <td>Required in Response
-   </td>
-   <td>No
-   </td>
-  </tr>
-  <tr>
-   <td>Parent
-   </td>
-   <td>TrackingEvents, ClickTracking, CustomClicks
-   </td>
-  </tr>
-  <tr>
-   <td>Bounded
-   </td>
-   <td>0-1
-   </td>
-  </tr>
-  <tr>
-   <td>Content
-   </td>
-   <td>(optional) The <code>eventData</code> to be included in a call to the Fenced Frame Reporting API with preregistered destination URL.
-   </td>
-  </tr>
-  <tr>
-   <th>Attributes
-   </th>
-   <th>Description
-   </th>
-  </tr>
-  <tr>
-   <td>    eventType
-   </td>
-   <td>The eventType for a registered ad beacon
-   </td>
-  </tr>
-  <tr>
-   <td>    destination
-   </td>
-   <td>The buyer or seller that should be pinged.
-   </td>
-  </tr>
-</table>
 
 
 This node type will tell the Protected Audience VAST Player when to send ad beacons using the [reportEvent with preregistered destination URL](https://github.com/WICG/turtledove/blob/main/Fenced_Frames_Ads_Reporting.md#reportevent-preregistered-destination-url). For each tracking event using this node, there must be a call to `registerAdBeacon` in [reportWin](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#52-buyer-reporting-on-render-and-ad-events) or [reportResult](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#51-seller-reporting-on-render) for the matching event type.
@@ -298,39 +258,14 @@ window.fence.reportEvent({
 
 #### 3.3.2. FencedFrameCustomDestination Node
 
+|  |  |
+|----------------------|---------------------------------------------------|
+| Player Support       | Required for Protected Audience API               |
+| Required in Response | No                                                |
+| Parent               | TrackingEvents, ClickTracking, CustomClicks       |
+| Bounded              | 0-1                                               |
+| Content              | The URI to be pinged for the given tracking event |
 
-<table>
-  <tr>
-   <th>Player Support
-   </td>
-   <th>Required for Protected Audience API
-   </td>
-  </tr>
-  <tr>
-   <td>Required in Response
-   </td>
-   <td>No
-   </td>
-  </tr>
-  <tr>
-   <td>Parent
-   </td>
-   <td>TrackingEvents, ClickTracking, CustomClicks
-   </td>
-  </tr>
-  <tr>
-   <td>Bounded
-   </td>
-   <td>0-1
-   </td>
-  </tr>
-  <tr>
-   <td>Content
-   </td>
-   <td>The URI to be pinged for the given tracking event
-   </td>
-  </tr>
-</table>
 
 
 This node type will tell the VAST player when to emit VAST tracking events using the [reportEvent with custom destination URL](https://github.com/WICG/turtledove/blob/main/Fenced_Frames_Ads_Reporting.md#reportevent-custom-destination-url-with-substitution-of-preregistered-macros). This API enables the buyer to register ad macros which will be expanded into their final tracking event URL. When transitioning to Fenced Frames there will be an additional limitation where these tracking events can only be sent to origins declared by the Buyer in their interest group definition.
@@ -436,12 +371,9 @@ Of these macros, some values are supplied contextually by the Publisher site, an
 
 <table>
   <tr>
-   <th><strong>VAST Macro</strong>
-   </th>
-   <th><strong>Data Source</strong>
-   </th>
-   <th><strong>Notes</strong>
-   </th>
+   <th><strong>VAST Macro</strong></th>
+   <th><strong>Data Source</strong></th>
+   <th><strong>Notes</strong></th>
   </tr>
   <tr>
    <td>[ADCOUNT]
