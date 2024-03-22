@@ -48,22 +48,26 @@ It will behave as a normal VAST player, except for these unique properties:
 *   **[Section 3.5](#35-client-tracking-event-macros):** It will perform macro expansion on tracking events using contextual information provided by the publishers page.
 
 
+![Visualization of how PAVP is related to Seller ads SDK](images/entity-relationship.png)
+
 ### 3.1. Ads represented as VAST
 
 DSPs use the [VAST standard](https://www.iab.com/guidelines/vast/) to represent their video ads because it enables ad servers to interact with each other in a standardized way. However the Protected Audience API requires Buyers to define their ads in terms of HTML for rendering.
 
-We propose that DSP ad servers continue to return VAST and Sellers continue to handle playback of VAST creatives. To achieve this, Sellers will host an implementation of the Protected Audience VAST Player, which Buyers must use.
+We propose that DSP ad servers continue to return VAST and Sellers continue to handle playback of VAST creatives. To achieve this, Sellers will host an HTML endpoint which will embed an implementation of the Protected Audience VAST Player. Buyers would use this HTML endpoint in their interest group registration.
 
 
 #### 3.1.1. Construction of renderUrl
 
-When Buyers define a video ad as part of an interest group, its renderUrl would be constructed as the concatenation of the Sellers PAVP endpoint and their own VAST ad tag URI endpoint.
+When Buyers define a video ad as part of an interest group, its renderUrl would be constructed as the concatenation of the Sellers PAVP HTML endpoint and their own VAST ad tag URI endpoint.
 
 **Joining an Interest Group Example**
+
 ```
 const sellerPlayer = 'https://seller-rendering.com/protected_audience_vast_player';
 const adTagUri = 'https://buyer.com/vast.xml';
 const encodedAdTag = encodeURI(adTagUri);
+
 navigator.joinAdInterestGroup({
   // ...
   'ads': [{
@@ -72,7 +76,7 @@ navigator.joinAdInterestGroup({
 });
 ```
 
-This process is explored in more detail [here](https://github.com/google/ads-privacy/tree/master/proposals/fledge-formats-rendering). We recognize that the need to use a seller-specific render URL may be high friction for buyers, and are still investigating alternatives. See [Next Steps](?tab=t.0#heading=h.m2irkq63aczc) for more info.
+This process is explored in more detail [here](https://github.com/google/ads-privacy/tree/master/proposals/fledge-formats-rendering). We recognize that the need to use a seller-specific render URL may be high friction for buyers, and are still investigating alternatives. See [Next Steps](#5-next-steps) for more info.
 
 
 ### 3.2. Media Player Synchronization
@@ -212,57 +216,17 @@ By reusing the structure of existing Tracking and Click events we intend to prov
 
 #### 3.3.1. FencedFrameRegisteredDestination Node
 
+|  |  |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Player Support                       | Required for Protected Audience API                                                                                     |
+| Required in Response                 | No                                                                                                                      |
+| Parent                               | TrackingEvents, ClickTracking, CustomClicks                                                                             |
+| Bounded                              | 0-1                                                                                                                     |
+| Content                              | (optional) The `eventData` to be included in a call to the Fenced Frame Reporting API with preregistered destination URL. |
+| <b> Attributes </b>                  | <b> Description </b>                       |
+| &nbsp;&nbsp;&nbsp;&nbsp; eventType   | The eventType for a registered ad beacon   |
+| &nbsp;&nbsp;&nbsp;&nbsp; destination | The buyer or seller that should be pinged. |
 
-<table>
-  <tr>
-   <th>Player Support
-   </th>
-   <th>Required for Protected Audience API
-   </th>
-  </tr>
-  <tr>
-   <td>Required in Response
-   </td>
-   <td>No
-   </td>
-  </tr>
-  <tr>
-   <td>Parent
-   </td>
-   <td>TrackingEvents, ClickTracking, CustomClicks
-   </td>
-  </tr>
-  <tr>
-   <td>Bounded
-   </td>
-   <td>0-1
-   </td>
-  </tr>
-  <tr>
-   <td>Content
-   </td>
-   <td>(optional) The <code>eventData</code> to be included in a call to the Fenced Frame Reporting API with preregistered destination URL.
-   </td>
-  </tr>
-  <tr>
-   <th>Attributes
-   </th>
-   <th>Description
-   </th>
-  </tr>
-  <tr>
-   <td>    eventType
-   </td>
-   <td>The eventType for a registered ad beacon
-   </td>
-  </tr>
-  <tr>
-   <td>    destination
-   </td>
-   <td>The buyer or seller that should be pinged.
-   </td>
-  </tr>
-</table>
 
 
 This node type will tell the Protected Audience VAST Player when to send ad beacons using the [reportEvent with preregistered destination URL](https://github.com/WICG/turtledove/blob/main/Fenced_Frames_Ads_Reporting.md#reportevent-preregistered-destination-url). For each tracking event using this node, there must be a call to `registerAdBeacon` in [reportWin](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#52-buyer-reporting-on-render-and-ad-events) or [reportResult](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#51-seller-reporting-on-render) for the matching event type.
@@ -298,39 +262,14 @@ window.fence.reportEvent({
 
 #### 3.3.2. FencedFrameCustomDestination Node
 
+|  |  |
+|----------------------|---------------------------------------------------|
+| Player Support       | Required for Protected Audience API               |
+| Required in Response | No                                                |
+| Parent               | TrackingEvents, ClickTracking, CustomClicks       |
+| Bounded              | 0-1                                               |
+| Content              | The URI to be pinged for the given tracking event |
 
-<table>
-  <tr>
-   <th>Player Support
-   </td>
-   <th>Required for Protected Audience API
-   </td>
-  </tr>
-  <tr>
-   <td>Required in Response
-   </td>
-   <td>No
-   </td>
-  </tr>
-  <tr>
-   <td>Parent
-   </td>
-   <td>TrackingEvents, ClickTracking, CustomClicks
-   </td>
-  </tr>
-  <tr>
-   <td>Bounded
-   </td>
-   <td>0-1
-   </td>
-  </tr>
-  <tr>
-   <td>Content
-   </td>
-   <td>The URI to be pinged for the given tracking event
-   </td>
-  </tr>
-</table>
 
 
 This node type will tell the VAST player when to emit VAST tracking events using the [reportEvent with custom destination URL](https://github.com/WICG/turtledove/blob/main/Fenced_Frames_Ads_Reporting.md#reportevent-custom-destination-url-with-substitution-of-preregistered-macros). This API enables the buyer to register ad macros which will be expanded into their final tracking event URL. When transitioning to Fenced Frames there will be an additional limitation where these tracking events can only be sent to origins declared by the Buyer in their interest group definition.
@@ -436,12 +375,9 @@ Of these macros, some values are supplied contextually by the Publisher site, an
 
 <table>
   <tr>
-   <th><strong>VAST Macro</strong>
-   </th>
-   <th><strong>Data Source</strong>
-   </th>
-   <th><strong>Notes</strong>
-   </th>
+   <th><strong>VAST Macro</strong></th>
+   <th><strong>Data Source</strong></th>
+   <th><strong>Notes</strong></th>
   </tr>
   <tr>
    <td>[ADCOUNT]
