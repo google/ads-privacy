@@ -48,22 +48,26 @@ It will behave as a normal VAST player, except for these unique properties:
 *   **[Section 3.5](#35-client-tracking-event-macros):** It will perform macro expansion on tracking events using contextual information provided by the publishers page.
 
 
+![Visualization of how PAVP is related to Seller ads SDK](images/entity-relationship.png)
+
 ### 3.1. Ads represented as VAST
 
 DSPs use the [VAST standard](https://www.iab.com/guidelines/vast/) to represent their video ads because it enables ad servers to interact with each other in a standardized way. However the Protected Audience API requires Buyers to define their ads in terms of HTML for rendering.
 
-We propose that DSP ad servers continue to return VAST and Sellers continue to handle playback of VAST creatives. To achieve this, Sellers will host an implementation of the Protected Audience VAST Player, which Buyers must use.
+We propose that DSP ad servers continue to return VAST and Sellers continue to handle playback of VAST creatives. To achieve this, Sellers will host an HTML endpoint which will embed an implementation of the Protected Audience VAST Player. Buyers would use this HTML endpoint in their interest group registration.
 
 
 #### 3.1.1. Construction of renderUrl
 
-When Buyers define a video ad as part of an interest group, its renderUrl would be constructed as the concatenation of the Sellers PAVP endpoint and their own VAST ad tag URI endpoint.
+When Buyers define a video ad as part of an interest group, its renderUrl would be constructed as the concatenation of the Sellers PAVP HTML endpoint and their own VAST ad tag URI endpoint.
 
 **Joining an Interest Group Example**
+
 ```
 const sellerPlayer = 'https://seller-rendering.com/protected_audience_vast_player';
 const adTagUri = 'https://buyer.com/vast.xml';
 const encodedAdTag = encodeURI(adTagUri);
+
 navigator.joinAdInterestGroup({
   // ...
   'ads': [{
@@ -72,7 +76,7 @@ navigator.joinAdInterestGroup({
 });
 ```
 
-This process is explored in more detail [here](https://github.com/google/ads-privacy/tree/master/proposals/fledge-formats-rendering). We recognize that the need to use a seller-specific render URL may be high friction for buyers, and are still investigating alternatives. See [Next Steps](?tab=t.0#heading=h.m2irkq63aczc) for more info.
+This process is explored in more detail [here](https://github.com/google/ads-privacy/tree/master/proposals/fledge-formats-rendering). We recognize that the need to use a seller-specific render URL may be high friction for buyers, and are still investigating alternatives. See [Next Steps](#5-next-steps) for more info.
 
 
 ### 3.2. Media Player Synchronization
@@ -218,7 +222,7 @@ By reusing the structure of existing Tracking and Click events we intend to prov
 | Required in Response                 | No                                                                                                                      |
 | Parent                               | TrackingEvents, ClickTracking, CustomClicks                                                                             |
 | Bounded                              | 0-1                                                                                                                     |
-| Content                              | (optional) The eventData to be included in a call to the Fenced Frame Reporting API with preregistered destination URL. |
+| Content                              | (optional) The `eventData` to be included in a call to the Fenced Frame Reporting API with preregistered destination URL. |
 | <b> Attributes </b>                  | <b> Description </b>                       |
 | &nbsp;&nbsp;&nbsp;&nbsp; eventType   | The eventType for a registered ad beacon   |
 | &nbsp;&nbsp;&nbsp;&nbsp; destination | The buyer or seller that should be pinged. |
