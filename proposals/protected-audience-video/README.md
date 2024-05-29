@@ -312,7 +312,7 @@ This can be implemented without an extra network hop by having the Protected Aud
 ```
 reportResult() {
    registerAdBeacon({
-     impression: 'https://adtech.example/impression?buyer_event_id=123',
+     impression: 'https://ssp.example/impression?seller_event_id=456',
   });
 }
 ```
