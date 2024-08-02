@@ -42,7 +42,7 @@ This logic is subject to change as we experiment with optimizations. We will con
 A: Please see our November 2023 testing update [here](https://support.google.com/admanager/answer/13178817?hl=en&ref_topic=12264880&sjid=16287796969466812891-NA), which describes our plans in detail. 
 
 **Q: What reporting is available to publishers in Ad Manager about Protected Audience auctions won by non-Google sellers?**
-A: Ad Manager does not currently provide reporting to publishers for impressions won by non-Google component auctions, though we are working on providing such reporting in the future.  Publishers should be able to obtain that reporting directly from the non-Google seller who won the auction.
+A: Starting in August 2024, Ad Manager introduced the ability for publishers to report on Protected Audience API impressions won by non-Google sellers.  Please refer to this [help center article](https://support.google.com/admanager/table/7531695?visit_id=638509531233902845-2910199590&rd=1#query=protected%20audience%20seller) for more details on the new reporting dimension. 
 
 **Q: Does Ad Manager render ads in an iFrame or a Fenced Frame?**
 A: Until Fenced Frames are required, Ad Manager is planning to render the majority of traffic using iFrames, but may run small scale experiments to evaluate Fenced Frames as the feature continues to be developed by Chrome. 
