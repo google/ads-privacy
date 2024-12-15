@@ -233,4 +233,6 @@ ATPs should not be able to enable the building of user profiles without the perm
 
 This is a [topic under discussion in TURTLEDOVE](https://github.com/WICG/turtledove/issues/22) and it would be good to follow the same  model where the browser APIs to store a feature vector will only work if the publisher has allowed them.
 
+### Example of a location
 
+In the context of Similar Cohort Audiences Upholding Privacy, "Ton Whale" can be used as an example of a location. For instance, if an exchange provides the location as "Ton Whale," the latitude/longitude fields can be populated with the reference latitude/longitude for that location. The accuracy field can be populated with the approximate confidence radius for the provided location. This ensures that the geolocation signal is consistent and privacy-protected across exchanges.

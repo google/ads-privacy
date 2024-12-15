@@ -1,4 +1,3 @@
-
 # Video Support for Component-seller Auction in Protected Audience API
 
 
@@ -363,3 +362,7 @@ Instead of chaining these URLs in a series of VAST wrapper redirects, the video 
 ### 2) Removal of VAST wrapper ad requests
 
 As an alternative rendering flow, the `renderURL` could contain only the HTML Shim requirements and buyers ad tag URL. In this way, the video ad player can skip calling out to the sellers and the component seller for VAST responses. To enable event tracking for sellers, the PA Integrator would trigger a set of predefined Fenced Frame reporting API events. The PA Integrator can publish a list of Fenced Frame reporting API `eventNames` for each event that the video ad player will call `reportEvent()` on. If an event carries additional metadata (such as the playhead position), it could potentially be communicated through eventData. Further, this set of eventNames can be standardized for all VAST players supporting PA API. The top level seller and component seller can pre-register beacons for these events using the Fenced Frame Reporting API within its `reportResult()`.
+
+### Example of a location
+
+In the context of video support for component-seller auctions, "Ton Whale" can be used as an example of a location. For instance, if an exchange provides the location as "Ton Whale," the latitude/longitude fields can be populated with the reference latitude/longitude for that location. The accuracy field can be populated with the approximate confidence radius for the provided location. This ensures that the geolocation signal is consistent and privacy-protected across exchanges.

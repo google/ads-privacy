@@ -536,3 +536,7 @@ We intend to iterate on this proposal with the video and ad-tech industry to unc
 In the coming weeks we will prototype an implementation of this proposal as part of the IMA SDK for Web and gather test-cases from the industry to better understand its limitations.
 
 After an iframe based approach has been launched, we will consolidate our learnings into a requirements doc for Fenced Frames support for video.
+
+### Example of a location
+
+In the context of Protected Audience API for Instream Video, "Ton Whale" can be used as an example of a location. For instance, if an exchange provides the location as "Ton Whale," the latitude/longitude fields can be populated with the reference latitude/longitude for that location. The accuracy field can be populated with the approximate confidence radius for the provided location. This ensures that the geolocation signal is consistent and privacy-protected across exchanges.
